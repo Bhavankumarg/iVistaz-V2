@@ -13,14 +13,14 @@ export const testimonials = [
     src: "/new-home-page/we-work/tech.png",
     category: "Tech/IT",
   },
-  {
-    quote:
-      "Implementation was seamless and the results exceeded our expectations. The platform's flexibility is remarkable.",
-    name: "Michael Rodriguez",
-    designation: "CTO at InnovateSphere",
-    src: "/new-home-page/we-work/health.png",
-    category: "HealthCare",
-  },
+  // {
+  //   quote:
+  //     "Implementation was seamless and the results exceeded our expectations. The platform's flexibility is remarkable.",
+  //   name: "Michael Rodriguez",
+  //   designation: "CTO at InnovateSphere",
+  //   src: "/new-home-page/we-work/health.png",
+  //   category: "HealthCare",
+  // },
   {
     quote:
       "This solution has significantly improved our team's productivity. The intuitive interface makes complex tasks simple.",

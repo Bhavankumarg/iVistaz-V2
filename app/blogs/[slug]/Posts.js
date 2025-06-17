@@ -71,7 +71,7 @@ const Posts = ({ slug }) => {
           data.map((post) => (
             <div className="flex flex-col" key={post.id}>
               {/* Breadcrumb */}
-              <div className="flex items-start mb-4 text-black lg:text-[16px] text-[14px]">
+              <div className="flex items-center mb-4 text-black lg:text-[16px] text-[14px]">
                 <Link href="/blogs" className="">
                   <span className="px-1">Blogs</span>
                 </Link>

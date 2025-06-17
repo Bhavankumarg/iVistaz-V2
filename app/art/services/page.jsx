@@ -28,7 +28,7 @@ function page() {
           alt=""
         />
 
-        <div className="py-4 mt-32 container mx-auto lg:px-16 px-5">
+        <div className="py-4 mt-32 container mx-auto lg:px-0 px-5">
           {/* Bread-crumb */}
           <div className="flex items-center mb-3 flex-nowrap">
             <p className="flex items-center">

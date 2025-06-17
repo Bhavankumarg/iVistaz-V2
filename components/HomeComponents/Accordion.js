@@ -31,8 +31,15 @@ const servicesList = [
   },
   {
     ques: "5. What kind of services do you offer?",
-    bachelor:
-      "We work across strategy, design, development, and performance marketing. - Explore our services",
+    bachelor: (
+      <>
+        We work across strategy, design, development, and performance marketing.
+        -{" "}
+        <Link href="/art/services" className="text-blue-400 hover:underline">
+          Explore our services
+        </Link>
+      </>
+    ),
   },
   {
     ques: "6. Do you have experience in my industry?",
