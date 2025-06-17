@@ -193,10 +193,10 @@ export const AnimatedTestimonials = ({ autoplay = false }) => {
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`px-4 py-2 rounded-full text-lg font-semibold transition-all duration-300 w-full text-left flex items-center justify-start gap-2 ${
+                  className={`px-4 py-2 text-lg font-semibold transition-all duration-300 w-full text-left flex items-center justify-start gap-2 ${
                     cat === activeCategory
-                      ? "bg-black text-white border-t text-xl"
-                      : "border-t border-dashed text-[#A8A8A8] hover:bg-black hover:text-white"
+                      ? "bg-black text-white border-b text-xl"
+                      : "border-b border-dashed text-[#A8A8A8] hover:bg-black hover:text-white"
                   }`}
                 >
                   {cat === activeCategory && (

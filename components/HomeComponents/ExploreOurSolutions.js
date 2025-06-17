@@ -12,7 +12,7 @@ export default function ExploreOurSolutions() {
     <>
     <div className="bg-black">
     <div className="relative w-full flex items-center justify-center pb-10 h-96">
-      <Link href="/">
+      <Link href="/mastery/solutions">
         <motion.div
           onHoverStart={() => setHovered(true)}
           onHoverEnd={() => setHovered(false)}

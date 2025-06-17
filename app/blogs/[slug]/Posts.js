@@ -4,6 +4,7 @@ import { CiCircleChevRight } from "react-icons/ci";
 import Link from "next/link";
 import ConfigData from "../../../config";
 import PageNotFound from "../../[service]/page";
+import Image from "next/image";
 
 const Posts = ({ slug }) => {
   const siteUrl = ConfigData.wpApiUrl;
@@ -35,23 +36,23 @@ const Posts = ({ slug }) => {
 
   return (
     <>
-      {data ? (
-        data.map((post) => (
-          <React.Fragment key={post.id}>
-            <title>{post.acf.meta_title}</title>
-            <meta name="description" content={post.acf.meta_description_} />
-            <meta name="robots" content="index,follow" />
-            <meta
-              name="viewport"
-              content="width=device-width, initial-scale=1"
-            />
-            <meta
-              property="article:modified_time"
-              content="2023-07-06T15:35:40+00:00"
-            />
-          </React.Fragment>
-        ))
-      ) : null}
+      {data
+        ? data.map((post) => (
+            <React.Fragment key={post.id}>
+              <title>{post.acf.meta_title}</title>
+              <meta name="description" content={post.acf.meta_description_} />
+              <meta name="robots" content="index,follow" />
+              <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1"
+              />
+              <meta
+                property="article:modified_time"
+                content="2023-07-06T15:35:40+00:00"
+              />
+            </React.Fragment>
+          ))
+        : null}
 
       <div className="w-full container mx-auto px-4 sm:px-6 lg:px-0 pt-32">
         {loading ? (
@@ -70,8 +71,8 @@ const Posts = ({ slug }) => {
           data.map((post) => (
             <div className="flex flex-col" key={post.id}>
               {/* Breadcrumb */}
-              <div className="flex items-center mb-4 text-black lg:text-[16px] text-[14px]">
-                <Link href="/blogs" className="hover:underline">
+              <div className="flex items-start mb-4 text-black lg:text-[16px] text-[14px]">
+                <Link href="/blogs" className="">
                   <span className="px-1">Blogs</span>
                 </Link>
                 <CiCircleChevRight className="text-black" />
@@ -82,11 +83,13 @@ const Posts = ({ slug }) => {
               </div>
 
               {/* Banner Image */}
-              <img
+              <Image
                 src={post.acf.desktop_banner_image.url}
                 alt={post.title.rendered}
                 loading="lazy"
-                className="w-full h-auto rounded-4xl pt-5"
+                className="w-full h-full rounded-4xl object-cover"
+                width={800}
+                height={600}
               />
 
               {/* Content */}
@@ -96,10 +99,13 @@ const Posts = ({ slug }) => {
                   dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                 />
                 <div>
-                  <p
-                    className="text-base leading-relaxed"
-                    dangerouslySetInnerHTML={{ __html: post.content.rendered }}
-                  />
+                  <div className="prose prose-lg text-black max-w-none text-lg">
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: post.content.rendered,
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>

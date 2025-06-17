@@ -47,7 +47,12 @@ const servicesList = [
         >
           reach@ivistaz.com
         </a>{" "}
-        - Explore the industries we serve
+        <Link
+          href="/performance/industries"
+          className="text-blue-400 hover:underline"
+        >
+          Explore the industries we serve
+        </Link>
       </>
     ),
   },
@@ -57,7 +62,7 @@ const servicesList = [
       "We’re always open to working with talented professionals who share our passion for performance.",
     master: (
       <>
-        <Link href="/" className="text-blue-400 hover:underline">
+        <Link href="/careers" className="text-blue-400 hover:underline">
           - See open positions
         </Link>
       </>
@@ -66,7 +71,7 @@ const servicesList = [
   {
     ques: "8. Can I work with iVistaz for a one-time project?",
     bachelor:
-      "For most digital marketing services like SEO, social media marketing, search engine marketing or content development, we prefer to work on a retainer model. Web design/redesign projects can be treated as a one-time projects",
+      "For most digital marketing services like SEO, social media marketing, search engine marketing or content development, we prefer to work on a retainer model. Web design/redesign projects can be treated as a one-time projects.",
   },
 ];
 

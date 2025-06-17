@@ -12,7 +12,7 @@ export default function StartTheConversation() {
     
     <div className="bg-black">
     <div className="relative w-full flex items-center justify-center h-40 z-0">
-      <Link href="/">
+      <Link href="/contact-us">
         <motion.div
           onHoverStart={() => setHovered(true)}
           onHoverEnd={() => setHovered(false)}

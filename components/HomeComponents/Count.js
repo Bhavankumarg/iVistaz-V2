@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const stats = [
   {
@@ -21,7 +21,7 @@ const stats = [
   },
   {
     value: 6,
-    prefix: "$", // ✅ Add dollar prefix
+    prefix: "$",
     suffix: "B",
     title: (
       <>
@@ -42,20 +42,21 @@ const stats = [
   },
 ];
 
-const CountUp = ({ end, suffix, prefix }) => {
+const CountUp = ({ end, suffix, prefix, shouldStart }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
+    if (!shouldStart) return;
     let start = 0;
     const duration = 1500;
-    const stepTime = Math.abs(Math.floor(duration / end));
+    const stepTime = Math.max(20, Math.floor(duration / end));
     const interval = setInterval(() => {
       start += 1;
       setCount(start);
-      if (start === end) clearInterval(interval);
+      if (start >= end) clearInterval(interval);
     }, stepTime);
     return () => clearInterval(interval);
-  }, [end]);
+  }, [end, shouldStart]);
 
   return (
     <span className="text-white lg:text-7xl text-2xl font-semibold">
@@ -67,8 +68,34 @@ const CountUp = ({ end, suffix, prefix }) => {
 };
 
 const Count = () => {
+  const [startCount, setStartCount] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStartCount(true);
+          observer.disconnect(); // Only run once
+        }
+      },
+      {
+        threshold: 0.3, // adjust for when it should start
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="bg-black lg:py-16 lg:px-6 p-5">
+    <section
+      className="bg-black lg:py-16 lg:px-6 p-5"
+      ref={sectionRef}
+    >
       <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
         {stats.map((stat, idx) => (
           <div key={idx} className="flex flex-col items-center">
@@ -90,6 +117,7 @@ const Count = () => {
                 end={stat.value}
                 suffix={stat.suffix}
                 prefix={stat.prefix}
+                shouldStart={startCount}
               />
             </div>
             <p className="text-lg text-white/80 leading-snug">{stat.title}</p>

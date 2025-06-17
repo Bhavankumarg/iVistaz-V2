@@ -15,7 +15,7 @@ body {
   font-family: "monument regular", sans-serif;
 }
 .font-monument-thin-italic {
-  font-weight: 100; 
+  font-weight: 100;
   font-style: italic;
 }
 .font-monument-extralight {
@@ -217,7 +217,6 @@ body {
   }
 }
 
-
 .btn-12 {
   position: relative;
   color: #ffffff !important;
@@ -277,7 +276,6 @@ body {
   animation-direction: alternate;
 }
 
-
 .btn-13 {
   position: relative;
   color: #fff !important;
@@ -336,7 +334,6 @@ body {
   -webkit-animation-direction: alternate;
   animation-direction: alternate;
 }
-
 
 .btn-19 {
   position: relative;
@@ -470,7 +467,6 @@ body {
   animation-direction: alternate;
 }
 
-
 .btn-14 {
   position: relative;
   color: #ed2225 !important;
@@ -531,7 +527,6 @@ body {
   -webkit-animation-direction: alternate;
   animation-direction: alternate;
 }
-
 
 .btn-18 {
   position: relative;
@@ -671,7 +666,6 @@ body {
   font-size: 24px !important;
   z-index: 0;
   background: #ed2225 !important;
-  
 }
 
 .btn-16:before,
@@ -715,7 +709,6 @@ body {
   -webkit-animation-direction: alternate;
   animation-direction: alternate;
 }
-
 
 .iv-cards {
   background: #ffffff !important;
@@ -775,9 +768,6 @@ body {
   text-decoration: none;
   font-family: "monument regular", sans-serif !important;
 }
-
-
-
 
 /* Animated Home Page */
 .animate span:nth-of-type(2) {
@@ -874,7 +864,6 @@ body {
   animation: leftRight 0.5s forwards;
 }
 
-
 /* scroll down home page arrow*/
 .scroll-down {
   position: absolute;
@@ -942,7 +931,6 @@ body {
   width: 250px !important;
   padding: 16px !important;
   border-radius: 10px !important;
-
 }
 
 .h-btn span {
@@ -951,7 +939,6 @@ body {
   color: black;
   font-weight: 500;
 }
-
 
 .fixed-top-custom {
   position: fixed;
@@ -983,5 +970,40 @@ body {
   }
 }
 
+/* WORDPRESS STYLES */
+.text-24 {
+  font-size: 24px !important;
+  font-weight: 700;
+  font-style: normal;
+}
+.text-28 {
+  font-size: 28px !important;
+  /* font-weight: 700; */
+  font-style: normal;
+}
+@media (max-width: 767px) {
+  .text-28 {
+    font-size: 22px !important;
+    /* font-weight: 700; */
+    font-style: normal;
+  }
+  .text-24 {
+    font-size: 20px !important;
+    font-weight: 700;
+    font-style: normal;
+  }
+}
 
+.blog-content ul {
+  list-style-type: disc !important;
+  padding: 20px !important;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 
+.blog-content li {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  font-size: 18px !important;
+
+}
