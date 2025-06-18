@@ -23,7 +23,7 @@ const OurClientLogos = () => {
                 className="w-1/2 sm:w-1/4 lg:w-1/6 flex justify-center items-center p-2 rounded-xl"
               >
                 <Image
-                  width={300}
+                  width={500}
                   height={200}
                   src={logo}
                   alt={`Client logo ${index}`}

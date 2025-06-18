@@ -11,33 +11,26 @@ const BlogsCard = () => {
   const [visibleData, setVisibleData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [visibleCount, setVisibleCount] = useState(6);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+ 
+  const fetchBlogPage = async (pageNum) => {
+    const response = await fetch(
+      `${siteUrl}/blogs?_embed&production_mode[]=${serverUrl}&per_page=6&page=${pageNum}`
+    );
+    if (!response.ok) throw new Error("Failed to fetch blog page");
+    return await response.json();
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchInitialBlogs = async () => {
       try {
-        let allData = [];
-        let page = 1;
-        let hasMore = true;
-
-        while (hasMore) {
-          const response = await fetch(
-            `${siteUrl}/blogs?_embed&production_mode[]=${serverUrl}&per_page=100&page=${page}`
-          );
-          if (response.ok) {
-            const pageData = await response.json();
-            if (pageData.length > 0) {
-              allData = [...allData, ...pageData];
-              page++;
-            } else {
-              hasMore = false;
-            }
-          } else {
-            hasMore = false;
-          }
-        }
-
-        setData(allData);
-        setVisibleData(allData.slice(0, 6));
+        const initialData = await fetchBlogPage(1);
+        setData(initialData);
+        setVisibleData(initialData);
+        setHasMore(initialData.length === 6); // Check if more data might be available
+        setPage(2); // Next page will be 2
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -45,14 +38,26 @@ const BlogsCard = () => {
       }
     };
 
-    fetchData();
+    fetchInitialBlogs();
   }, [siteUrl, serverUrl]);
 
-  const handleLoadMore = () => {
-    const newVisibleCount = visibleCount + 6;
-    setVisibleData(data.slice(0, newVisibleCount));
-    setVisibleCount(newVisibleCount);
+  const handleLoadMore = async () => {
+    setIsLoadingMore(true);
+    try {
+      const moreBlogs = await fetchBlogPage(page);
+      const updatedData = [...data, ...moreBlogs];
+      setData(updatedData);
+      setVisibleData(updatedData.slice(0, visibleCount + 6));
+      setVisibleCount(visibleCount + 6);
+      setPage(page + 1);
+      if (moreBlogs.length < 6) setHasMore(false);
+    } catch (error) {
+      console.error("Error loading more blogs:", error);
+    } finally {
+      setIsLoadingMore(false);
+    }
   };
+  
 
   return (
     <div className="bg-white pb-10 px-4 lg:px-0">
@@ -112,7 +117,6 @@ const BlogsCard = () => {
                   <div className="mt-4 flex justify-between items-center">
                     <Link href={`/blogs/${post.slug}`} className="iv-link">
                       <p className="flex items-center gap-3">
-                        {" "}
                         Read more <FaArrowRight className="icons" size={20} />
                       </p>
                     </Link>
@@ -132,13 +136,25 @@ const BlogsCard = () => {
         )}
       </div>
 
-      {visibleCount < data.length && (
-        <div className="flex justify-center mt-10">
-          <button onClick={handleLoadMore} className="btn-15">
-            Load More
-          </button>
-        </div>
+      {hasMore && (
+  <div className="flex justify-center mt-10">
+    <button
+      onClick={handleLoadMore}
+      className="btn-15 flex items-center gap-2"
+      disabled={isLoadingMore}
+    >
+      {isLoadingMore ? (
+        <>
+          <span className="loader h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+          Loading...
+        </>
+      ) : (
+        "Load More"
       )}
+    </button>
+  </div>
+)}
+
     </div>
   );
 };

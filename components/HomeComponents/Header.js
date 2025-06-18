@@ -210,24 +210,37 @@ const Header = () => {
             >
               {menuItems.map((item, index) => (
                 <div key={index}>
-                  <button
-                    className="flex justify-between w-full text-left font-medium py-2"
-                    onClick={() =>
-                      setMobileDropdown(mobileDropdown === index ? null : index)
-                    }
-                  >
-                    <span
-                      className={`${
-                        pathname === item.pageLink ||
-                        item.submenu.some((s) => s.pageLink === pathname)
-                          ? "text-red-500"
-                          : ""
-                      }`}
-                    >
-                      {item.title}
-                    </span>
-                    {item.submenu.length > 0 && <IoIosArrowDown />}
-                  </button>
+                {item.submenu.length > 0 ? (
+  <button
+    className="flex justify-between w-full text-left font-medium py-2"
+    onClick={() =>
+      setMobileDropdown(mobileDropdown === index ? null : index)
+    }
+  >
+    <span
+      className={`${
+        pathname === item.pageLink ||
+        item.submenu.some((s) => s.pageLink === pathname)
+          ? "text-red-500"
+          : ""
+      }`}
+    >
+      {item.title}
+    </span>
+    <IoIosArrowDown />
+  </button>
+) : (
+  <Link
+    href={item.pageLink || "#"}
+    onClick={() => setMobileOpen(false)}
+    className={`block w-full text-left font-medium py-2 ${
+      pathname === item.pageLink ? "text-red-500" : "hover:text-red-600"
+    }`}
+  >
+    {item.title}
+  </Link>
+)}
+
 
                   <AnimatePresence initial={false}>
                     {mobileDropdown === index && item.submenu.length > 0 && (

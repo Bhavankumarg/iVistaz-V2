@@ -36,6 +36,42 @@ const Posts = ({ slug }) => {
 
   return (
     <>
+      <style>
+        {`
+        h1, h2, h3, h4, h5, h6 {
+          margin-bottom: 1rem !important;
+        }
+        h1, h2, h3, h4, h5, h6, p {
+          margin-top: 1rem !important;
+        }
+        
+        ul li{
+        margin-bottom: 1rem !important
+        }
+
+        ul{
+        padding-left: 20px !important;
+        margin-top: 1rem !important
+        }
+
+        h4{
+        font-size: 24px !important
+        }
+
+        h3{
+        font-size: 28px !important
+        }
+        
+        h2{
+        font-size: 28px !important
+        }
+
+        b {
+        font-weight: 700 !important;
+        font-style: normal !important;
+        }
+      `}
+      </style>
       {data
         ? data.map((post) => (
             <React.Fragment key={post.id}>
@@ -87,7 +123,7 @@ const Posts = ({ slug }) => {
                 src={post.acf.desktop_banner_image.url}
                 alt={post.title.rendered}
                 loading="lazy"
-                className="w-full h-full rounded-4xl object-cover"
+                className="w-full h-full rounded-4xl object-cover pt-5"
                 width={800}
                 height={600}
               />

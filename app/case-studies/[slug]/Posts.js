@@ -28,6 +28,42 @@ const Posts = ({ slug }) => {
 
   return (
     <>
+      <style>
+        {`
+        h1, h2, h3, h4, h5, h6 {
+          margin-bottom: 1rem !important;
+        }
+        h1, h2, h3, h4, h5, h6, p {
+          margin-top: 1rem !important;
+        }
+        
+        ul li{
+        margin-bottom: 0.5rem !important
+        }
+
+        ul{
+        padding-left: 20px !important;
+        margin-top: 1rem !important
+        }
+
+        h4{
+        font-size: 24px !important
+        }
+
+        h3{
+        font-size: 28px !important
+        }
+        
+        h2{
+        font-size: 28px !important
+        }
+
+        b {
+        font-weight: 700 !important;
+        font-style: normal !important;
+        }
+      `}
+      </style>
       {data && !loading
         ? data.map((post) => (
             <React.Fragment key={post.id}>

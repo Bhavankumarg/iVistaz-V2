@@ -981,6 +981,11 @@ body {
   /* font-weight: 700; */
   font-style: normal;
 }
+.text-22 {
+  font-size: 22px !important;
+  font-weight: 700;
+  font-style: normal;
+}
 @media (max-width: 767px) {
   .text-28 {
     font-size: 22px !important;
@@ -992,9 +997,14 @@ body {
     font-weight: 700;
     font-style: normal;
   }
+  .text-22 {
+    font-size: 20px !important;
+    font-weight: 700;
+    font-style: normal;
+  }
 }
 
-.blog-content ul {
+/* .blog-content ul {
   list-style-type: disc !important;
   padding: 20px !important;
   margin-top: 1rem;
@@ -1006,4 +1016,12 @@ body {
   margin-top: 1rem;
   font-size: 18px !important;
 
+} */
+
+.wbg-red {
+  color: #ed2225 !important;
+}
+
+.wb-marker-red::marker {
+  color: #ed2225 !important;
 }

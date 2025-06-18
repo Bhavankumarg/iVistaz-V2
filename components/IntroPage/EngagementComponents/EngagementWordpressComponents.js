@@ -3,7 +3,7 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import CaseStudiesCategoriesComponents from "../../IndustriesComponents/Appliances/CaseStudiesCategoriesComponents";
+import CaseStudiesCategoriesComponents from "../../IndustriesComponents/CaseStudiesPropsFetch/CaseStudiesCategoriesComponents";
 const EngagementWordpressComponents = () => {
   const categoryId = 6;
 

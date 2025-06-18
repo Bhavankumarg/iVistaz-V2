@@ -1,5 +1,6 @@
 import React from "react";
-import CaseStudiesCategoriesComponents from "./CaseStudiesCategoriesComponents";
+import CaseStudiesCategoriesComponents from "../CaseStudiesPropsFetch/CaseStudiesCategoriesComponents"
+
 
 const CaseStudiesCard = () => {
   const categoryId = 11;

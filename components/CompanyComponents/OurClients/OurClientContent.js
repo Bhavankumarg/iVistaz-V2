@@ -5,7 +5,7 @@ const OurClientsContent = () => {
     <div className="relative z-30 bg-black w-full">
       <div className="container lg:px-0 px-4 mx-auto py-24">
         <div>
-          <h1 className="text-white text-[70px] font-bold text-left leading-tight">
+          <h1 className="text-white lg:text-[70px] text-2xl font-monument-bold text-left leading-tight">
             LEADING BRANDS, <br />
             TRUSTED CLIENTS
           </h1>
