@@ -6,7 +6,7 @@ export default function Home() {
     title: "Performance Marketing Services",
     description:
       "Discover top-notch performance marketing services with iVistaz. Our expert team offers innovative solutions to boost your business's online presence and drive measurable results. Partner with us for customized strategies that enhance your digital growth.",
-    path: "https://ivistaz.com/",
+    path: "/",
   };
 
   return (

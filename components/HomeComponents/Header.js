@@ -7,6 +7,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { menuItems } from "@/utils/MenuItems";
 
 const Header = () => {
   const pathname = usePathname();
@@ -32,60 +33,6 @@ const Header = () => {
 
   if (pathname === "/") return null;
 
-  const menuItems = [
-    {
-      title: "Services",
-      submenu: [
-        { label: "Overview", pageLink: "/art/services" },
-        { label: "Content Development (B2B & B2C)", pageLink: "/service/content-development-b2b-b2c" },
-        { label: "Design", pageLink: "/service/design" },
-        { label: "Search Engine Marketing", pageLink: "/service/search-engine-marketing" },
-        { label: "Search Engine Optimization", pageLink: "/service/search-engine-optimization" },
-        { label: "Social Media Marketing", pageLink: "/service/social-media-marketing" },
-        { label: "Social Media - Organic", pageLink: "/service/organic-social-media" },
-        { label: "Website Design & Development", pageLink: "/service/website-design-and-development" },
-      ],
-    },
-    {
-      title: "Solutions",
-      pageLink: "/mastery/solutions",
-      submenu: [],
-    },
-    {
-      title: "Industries",
-      submenu: [
-        { label: "Overview", pageLink: "/performance/industries" },
-        { label: "Appliances", pageLink: "/industries/appliances" },
-        { label: "Automobiles", pageLink: "/industries/automobiles" },
-        { label: "Beauty & Wellness", pageLink: "/industries/beauty-wellness" },
-        { label: "Fashion & Accessories", pageLink: "/industries/fashion-accessories" },
-        { label: "Hospitality", pageLink: "/industries/hospitality" },
-        { label: "Jewelry", pageLink: "/industries/jewellery" },
-        { label: "NGOs", pageLink: "/industries/ngos" },
-        { label: "Tech/IT", pageLink: "/industries/technology-IT" },
-      ],
-    },
-    {
-      title: "Blogs",
-      pageLink: "/blogs",
-      submenu: [],
-    },
-    {
-      title: "Company",
-      submenu: [
-        { label: "Team", pageLink: "/our-team" },
-        { label: "Clients", pageLink: "/our-clients" },
-        { label: "About Us", pageLink: "/mastery/about-us" },
-        { label: "Careers", pageLink: "/careers" },
-        { label: "M.A.P", pageLink: "/mastery-art-performance" },
-      ],
-    },
-    {
-      title: "Contact",
-      pageLink: "/contact-us",
-      submenu: [],
-    },
-  ];
 
   return (
     <div className="bg-black text-white fixed w-full z-50">
@@ -106,22 +53,30 @@ const Header = () => {
                   onMouseEnter={() => setActiveMenu(index)}
                   onMouseLeave={() => setActiveMenu(null)}
                   className={`transition flex items-center gap-1 ${
-                    pathname === item.pageLink ? "text-red-500" : "hover:text-red-500"
+                    pathname === item.pageLink
+                      ? "text-red-500"
+                      : "hover:text-red-500"
                   }`}
                 >
                   {item.title}
-                  {item.submenu.length > 0 && <IoIosArrowDown className="text-xs" />}
+                  {item.submenu.length > 0 && (
+                    <IoIosArrowDown className="text-xs" />
+                  )}
                 </Link>
               ) : (
                 <span
                   onMouseEnter={() => setActiveMenu(index)}
                   onMouseLeave={() => setActiveMenu(null)}
                   className={`transition flex items-center gap-1 cursor-default ${
-                    item.submenu.some((s) => s.pageLink === pathname) ? "text-red-500" : "hover:text-red-500"
+                    item.submenu.some((s) => s.pageLink === pathname)
+                      ? "text-red-500"
+                      : "hover:text-red-500"
                   }`}
                 >
                   {item.title}
-                  {item.submenu.length > 0 && <IoIosArrowDown className="text-xs" />}
+                  {item.submenu.length > 0 && (
+                    <IoIosArrowDown className="text-xs" />
+                  )}
                 </span>
               )}
 
@@ -137,7 +92,7 @@ const Header = () => {
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6 px-4 sm:px-8 py-10">
+                      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6 px-4 sm:px-8 py-10">
                         <div className="space-y-2">
                           {item.submenu.slice(0, 4).map((sub, subIndex) => (
                             <Link
@@ -210,37 +165,40 @@ const Header = () => {
             >
               {menuItems.map((item, index) => (
                 <div key={index}>
-                {item.submenu.length > 0 ? (
-  <button
-    className="flex justify-between w-full text-left font-medium py-2"
-    onClick={() =>
-      setMobileDropdown(mobileDropdown === index ? null : index)
-    }
-  >
-    <span
-      className={`${
-        pathname === item.pageLink ||
-        item.submenu.some((s) => s.pageLink === pathname)
-          ? "text-red-500"
-          : ""
-      }`}
-    >
-      {item.title}
-    </span>
-    <IoIosArrowDown />
-  </button>
-) : (
-  <Link
-    href={item.pageLink || "#"}
-    onClick={() => setMobileOpen(false)}
-    className={`block w-full text-left font-medium py-2 ${
-      pathname === item.pageLink ? "text-red-500" : "hover:text-red-600"
-    }`}
-  >
-    {item.title}
-  </Link>
-)}
-
+                  {item.submenu.length > 0 ? (
+                    <button
+                      className="flex justify-between w-full text-left font-medium py-2"
+                      onClick={() =>
+                        setMobileDropdown(
+                          mobileDropdown === index ? null : index
+                        )
+                      }
+                    >
+                      <span
+                        className={`${
+                          pathname === item.pageLink ||
+                          item.submenu.some((s) => s.pageLink === pathname)
+                            ? "text-red-500"
+                            : ""
+                        }`}
+                      >
+                        {item.title}
+                      </span>
+                      <IoIosArrowDown />
+                    </button>
+                  ) : (
+                    <Link
+                      href={item.pageLink || "#"}
+                      onClick={() => setMobileOpen(false)}
+                      className={`block w-full text-left font-medium py-2 ${
+                        pathname === item.pageLink
+                          ? "text-red-500"
+                          : "hover:text-red-600"
+                      }`}
+                    >
+                      {item.title}
+                    </Link>
+                  )}
 
                   <AnimatePresence initial={false}>
                     {mobileDropdown === index && item.submenu.length > 0 && (
@@ -261,7 +219,9 @@ const Header = () => {
                               setMobileOpen(false);
                             }}
                             className={`block text-sm transition ${
-                              pathname === sub.pageLink ? "text-red-500" : "hover:text-red-600"
+                              pathname === sub.pageLink
+                                ? "text-red-500"
+                                : "hover:text-red-600"
                             }`}
                           >
                             {sub.label}

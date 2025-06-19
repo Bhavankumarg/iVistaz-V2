@@ -2,8 +2,8 @@
 import React from "react"
 
 function NextSeo({ title, description, path, metaImage }) {
-  // Dynamically get the domain name from window.location (client-side)
-  const domainName = typeof window !== "undefined" ? window.location.origin : ""
+  // Set a static domain name
+  const domainName = "https://ivistaz.com";
 
   return (
     <head>
@@ -11,6 +11,7 @@ function NextSeo({ title, description, path, metaImage }) {
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="robots" content="index, follow" />
       <link rel="icon" href="/images/favicon-150x150.png" />
       <link rel="canonical" href={`${domainName}${path}`} />
       <meta property="og:locale" content="en_US" />
@@ -28,11 +29,11 @@ function NextSeo({ title, description, path, metaImage }) {
           __html: JSON.stringify({
             "@context": "https://schema.org/",
             "@type": "WebSite",
-            name: "Nautilus Shipping",
+            name: "iVistaz",
             url: "https://ivistaz.com/",
             potentialAction: {
               "@type": "SearchAction",
-              target: `https://ivistaz.com/${path}`,
+              target: `https://ivistaz.com${path}`,
               "query-input": "required name=search_term_string",
             },
           }),

@@ -92,10 +92,7 @@ const Count = () => {
   }, []);
 
   return (
-    <section
-      className="bg-black lg:py-16 lg:px-6 p-5"
-      ref={sectionRef}
-    >
+    <section className="bg-black lg:py-16 lg:px-6 p-5" ref={sectionRef}>
       <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
         {stats.map((stat, idx) => (
           <div key={idx} className="flex flex-col items-center">

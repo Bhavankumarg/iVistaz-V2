@@ -9,24 +9,28 @@ const EverythingConnect = () => {
       title: "Performance.",
       desc: "We build strategies that are measurable from day one. Less noise, more action — and results that hold.",
       bgGradient: "from-[#4C146A] to-[#080808]",
+      
     },
     {
       imageUrl: "/new-home-page/eveything/img-2.png",
       title: "Design.",
       desc: "Simple, human, and intuitive. We design for clarity, not just looks.",
       bgGradient: "from-[#ED1C24] via-[#ED1D24] to-[#FF5C00]",
+      // marginHeight: "mt-5"
     },
     {
       imageUrl: "/new-home-page/eveything/img-3.png",
       title: "Content.",
       desc: "What you say, and how you say it, matters. We help you say it well — and make it resonate.",
       bgGradient: "from-[#0D3B66] to-[#328D21]",
+      // marginHeight: "mt-10"
     },
     {
       imageUrl: "/new-home-page/eveything/img-4.png",
       title: "Technology.",
       desc: "Tech that fits, scales, and works quietly in the background. Tailored tech solutions carefully chosen to fit your needs.",
       bgGradient: "from-[#1416B4] to-[#4C146A]",
+      // marginHeight: "mt-16"
     },
   ];
 
@@ -45,7 +49,7 @@ const EverythingConnect = () => {
             className="relative group lg:w-80 w-full h-[400px] overflow-hidden mt-10 shadow-xl"
           >
             {/* Image transitions out on hover */}
-            <div className="absolute inset-0 z-0 transition-all duration-500 ease-in-out group-hover:translate-x-10 group-hover:translate-y-10 group-hover:scale-110 group-hover:opacity-0">
+            <div className={`absolute inset-0 z-0 transition-all duration-500 ease-in-out group-hover:translate-x-10 group-hover:translate-y-10 group-hover:scale-110 group-hover:opacity-0 ${card.marginHeight}`}>
               <Image
                 src={card.imageUrl}
                 alt={card.title}
@@ -71,7 +75,7 @@ const EverythingConnect = () => {
         ))}
       </div>
       <div>
-        <h4 className="lg:text-5xl text-2xl text-center lg:py-10 text-white">Where form meets function.</h4>
+        <h4 className="lg:text-5xl text-2xl text-center lg: text-white">Where form meets function.</h4>
       </div>
       </div>
     </>
