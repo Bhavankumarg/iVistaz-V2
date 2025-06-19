@@ -30,7 +30,7 @@ function page() {
         <div className="w-full md:w-4/5 py-4 mt-32 container mx-auto lg:px-0 px-5">
           {/* Bread-crumb */}
           <div className="flex items-center mb-3 flex-nowrap">
-            <p className="flex items-center">
+            <div className="flex items-center">
               <Link href="/welcome" className="no-underline">
                 <span className="text-md text-black px-1">Home</span>
               </Link>
@@ -38,7 +38,7 @@ function page() {
               <Link href="" className="no-underline px-1">
                 <span className="text-md text-black">Art</span>
               </Link>
-            </p>
+            </div>
           </div>
           <div>
             <h1 className="text-5xl md:text-7xl font-bold lg:py-10 py-5">

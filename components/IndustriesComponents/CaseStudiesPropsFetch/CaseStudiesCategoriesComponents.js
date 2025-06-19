@@ -106,7 +106,7 @@ const CaseStudiesCategoriesComponents = ({ categoryId }) => {
         {data ? (
           data.map((item) => (
             <div key={item.id} className="mb-10">
-              <img
+              <Image
                 src={item.acf.thumbnail_image.url}
                 alt={item.title.rendered}
                 width={1200}

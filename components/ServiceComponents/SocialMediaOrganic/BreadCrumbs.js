@@ -10,9 +10,11 @@ const BreadCrumbs = () => {
         <div className="w-full py-4 mt-24 container mx-auto lg:px-0 px-5">
           {/* Bread-crumb */}
           <div className="flex items-center mb-3 flex-nowrap">
-            <p className="flex items-center">
+            <div className="flex items-center">
               <Link href="/art/services" className="no-underline">
-                <p className="text-[14px] lg:text-[16px] text-black px-1">Services</p>
+                <p className="text-[14px] lg:text-[16px] text-black px-1">
+                  Services
+                </p>
               </Link>
               <CiCircleChevRight className="text-red-500" />
               <Link href="" className="no-underline px-1">
@@ -21,7 +23,7 @@ const BreadCrumbs = () => {
                   Social media-organic
                 </p>
               </Link>
-            </p>
+            </div>
           </div>
         </div>
       </div>

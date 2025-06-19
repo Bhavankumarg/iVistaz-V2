@@ -173,7 +173,7 @@ export const AnimatedTestimonials = ({ autoplay = false }) => {
                       }}
                       className="absolute inset-0  origin-bottom"
                     >
-                      <img
+                      <Image
                         src={testimonial.src}
                         alt={testimonial.name}
                         width={500}
@@ -201,8 +201,8 @@ export const AnimatedTestimonials = ({ autoplay = false }) => {
                 >
                   {cat === activeCategory && (
                     <Image
-                    width={4}
-                    height={4}
+                      width={4}
+                      height={4}
                       src="/new-home-page/red-arrow.png"
                       alt="arrow"
                       className="w-4 h-4"

@@ -35,6 +35,7 @@ const Header = () => {
 
 
   return (
+    <>
     <div className="bg-black text-white fixed w-full z-50">
       <div className="container mx-auto flex items-center justify-between px-4 lg:px-0 py-4">
         <div className="flex items-center">
@@ -247,6 +248,7 @@ const Header = () => {
         </AnimatePresence>
       )}
     </div>
+    </>
   );
 };
 

@@ -38,9 +38,9 @@ const Footer = () => {
       <div className="flex flex-col sm:flex-row gap-6 justify-center items-center border-b-2 border-dashed border-[#2D2D2D] pb-10">
         {/* Business Enquiries Box */}
         <div className="border border-[#2D2D2D] rounded-xl h-32  w-80 lg:w-[450px] text-center">
-          <h4 className="text-gray-400 text-sm mb-3 mt-4">
+          <p className="text-gray-400 text-sm mb-3 mt-4">
             Business Enquiries
-          </h4>
+          </p>
 
           {/* Contact Info Hover Section */}
           <div className="relative group mx-auto h-[62%] overflow-hidden rounded-b-xl flex items-center justify-center cursor-pointer">
@@ -61,8 +61,8 @@ const Footer = () => {
         </div>
 
         {/* Follow Us Box */}
-        <div className="border border-[#2D2D2D] rounded-xl px-8 py-6 lg:w-[450px] w-80 h-32 text-center ">
-          <h4 className="text-gray-400 text-sm mb-3">Follow Us</h4>
+        <div className="border border-[#2D2D2D] rounded-xl px-8 lg:w-[450px] w-80 h-32 text-center ">
+          <p className="text-gray-400 text-sm mb-3 mt-4">Follow Us</p>
           <div className="flex gap-4 justify-center pt-2">
             <Link
               href="https://www.instagram.com/ivistazecomservices/"
