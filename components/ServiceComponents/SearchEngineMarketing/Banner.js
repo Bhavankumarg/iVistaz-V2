@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { CiCircleChevRight } from "react-icons/ci";
+import NextSeo from "@/components/Seo/Seo";
 
 const HomeBanner = () => {
   const pathname = usePathname();
@@ -12,17 +13,20 @@ const HomeBanner = () => {
     setDomainName(window.location.hostname);
   }, []);
 
-  const title = "Content development for B2C and B2B businesses";
-  const description =
-    "iVistaz provides content development services for organisations across B2B and B2C sectors, going beyond mere content creation.";
-  const path = `${pathname}`;
-  const metaImage = "";
+  const seoField = {
+    title: "Expert SEM Strategies for Effective Online Advertisin",
+    description:
+      "Navigate micro-moments with expert SEM. Place ads at the top of SERPs, optimize CPL, and drive conversions with search, display, video, shopping, and discovery ads.",
+    path: `${pathname}`,
+    metaImage: "/services/sem-banner.jpg",
+  };
 
   const bannerSubHeading = "SEARCH ENGINE";
   const bannerHeading = "MARKETING";
 
   return (
     <>
+      <NextSeo {...seoField} />
       <div className="bg-white relative z-10 w-full">
         <div className="w-full mx-auto container">
           <div className="flex flex-col items-center lg:px-0 px-2">

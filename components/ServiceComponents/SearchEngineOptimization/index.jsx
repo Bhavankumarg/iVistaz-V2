@@ -5,11 +5,11 @@ import Content from "./Content";
 
 const index = () => {
   return (
-    <div>
+    <>
       <BreadCrumbs />
       <Banner />
       <Content />
-    </div>
+    </>
   );
 };
 

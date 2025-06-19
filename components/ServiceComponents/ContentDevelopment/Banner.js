@@ -19,6 +19,7 @@ import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { CiCircleChevRight } from "react-icons/ci";
+import NextSeo from "@/components/Seo/Seo";
 
 const HomeBanner = () => {
   const pathname = usePathname();
@@ -28,22 +29,24 @@ const HomeBanner = () => {
     setDomainName(window.location.hostname);
   }, []);
 
-  const title = "Content development for B2C and B2B businesses";
-  const description =
-    "iVistaz provides content development services for organisations across B2B and B2C sectors, going beyond mere content creation.";
-  const path = `${pathname}`;
-  const metaImage = "";
+  const seoField = {
+    title: "Content development for B2C and B2B businesses",
+    description:
+      "iVistaz provides content development services for organisations across B2B and B2C sectors, going beyond mere content creation.",
+    path: `${pathname}`,
+    metaImage: "/services/content-development-banner.jpg",
+  };
 
   const bannerSubHeading = "CONTENT DEVELOPMENT";
   const bannerHeading = "B2B & B2C";
-
   return (
     <>
+      <NextSeo {...seoField} />
       <div className="bg-white relative z-10 w-full">
         <div className="w-full mx-auto container">
           <div className="flex flex-col items-center lg:px-0 px-2">
             {/* Breadcrumb */}
-  
+
             {/* Banner Section - Manual Implementation */}
             <div className="relative w-full overflow-hidden rounded-4xl mb-8">
               {/* Desktop Image */}

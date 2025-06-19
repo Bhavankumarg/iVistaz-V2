@@ -6,19 +6,23 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Image from "next/image";
 import { servicesData } from "@/utils/data";
+import NextSeo from "@/components/Seo/Seo";
 
 function page() {
   const pathname = usePathname();
-  const [domainName, setDomainName] = useState("");
+  // const [domainName, setDomainName] = useState("");
 
-  const title = "Art Marketing Solutions ";
-  const description =
-    "Promote your art with iVistaz's specialized marketing solutions. We help artists and galleries increase their online presence and connect with art enthusiasts, ensuring your work reaches a broader audience.";
-  const path = `${pathname}`;
-  const metaImage = "";
+  const seoField = {
+    title: "Art Marketing Solution",
+    description:
+      "Promote your art with iVistaz's specialized marketing solutions. We help artists and galleries increase their online presence and connect with art enthusiasts, ensuring your work reaches a broader audience.",
+    path: `${pathname}`,
+    metaImage: "",
+  };
 
   return (
     <>
+      <NextSeo {...seoField} />
       <div className="flex flex-col justify-between min-h-screen">
         <Image
           width={600}
@@ -71,7 +75,7 @@ function page() {
               </p>
             </div>
           </div>
-          <div className="grid lg:grid-cols-3 container mx-auto py-20 gap-10">
+          <div className="grid lg:grid-cols-3  container mx-auto py-20 gap-10">
             {servicesData.map((item, index) => (
               <div
                 key={index}
@@ -80,7 +84,9 @@ function page() {
                 <Image src={item.logo} width={60} height={60} alt="icon" />
                 <div>
                   <p className="text-[18px] py-5 text-center">
-                    <Link href={item.pageLink} className="hover:text-[#ed2023]">{item.description}</Link>
+                    <Link href={item.pageLink} className="hover:text-[#ed2023]">
+                      {item.description}
+                    </Link>
                   </p>
                 </div>
               </div>
