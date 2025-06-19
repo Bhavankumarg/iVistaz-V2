@@ -6,13 +6,14 @@ import Script from "next/script";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Header />
       <head>
         {/* <meta
           name="p:domain_verify"
           content="0d52b0992f69dadc8ca90881cc4677c2"
         /> */}
       </head>
-      <Header />
+      
       <body>
         {/* Google Tag Manager */}
         <Script id="google-tag-manager" strategy="afterInteractive">
