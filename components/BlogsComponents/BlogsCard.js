@@ -1,9 +1,8 @@
 "use client";
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import Link from "next/link";
 import ConfigData from "../../config";
-import Image from "next/image";
 
 const BlogsCard = () => {
   const siteUrl = ConfigData.wpApiUrl;
@@ -15,17 +14,14 @@ const BlogsCard = () => {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
-
-  const fetchBlogPage = useCallback(
-    async (pageNum) => {
-      const response = await fetch(
-        `${siteUrl}/blogs?_embed&production_mode[]=${serverUrl}&per_page=6&page=${pageNum}`
-      );
-      if (!response.ok) throw new Error("Failed to fetch blog page");
-      return await response.json();
-    },
-    [siteUrl, serverUrl]
-  );
+ 
+  const fetchBlogPage = async (pageNum) => {
+    const response = await fetch(
+      `${siteUrl}/blogs?_embed&production_mode[]=${serverUrl}&per_page=6&page=${pageNum}`
+    );
+    if (!response.ok) throw new Error("Failed to fetch blog page");
+    return await response.json();
+  };
 
   useEffect(() => {
     const fetchInitialBlogs = async () => {
@@ -33,8 +29,8 @@ const BlogsCard = () => {
         const initialData = await fetchBlogPage(1);
         setData(initialData);
         setVisibleData(initialData);
-        setHasMore(initialData.length === 6);
-        setPage(2);
+        setHasMore(initialData.length === 6); // Check if more data might be available
+        setPage(2); // Next page will be 2
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -43,7 +39,7 @@ const BlogsCard = () => {
     };
 
     fetchInitialBlogs();
-  }, [fetchBlogPage]);
+  }, [siteUrl, serverUrl]);
 
   const handleLoadMore = async () => {
     setIsLoadingMore(true);
@@ -61,6 +57,7 @@ const BlogsCard = () => {
       setIsLoadingMore(false);
     }
   };
+  
 
   return (
     <div className="bg-white pb-10 px-4 lg:px-0">
@@ -104,13 +101,11 @@ const BlogsCard = () => {
               className="flex flex-col bg-white shadow-md rounded-lg overflow-hidden iv-cards transition duration-300"
             >
               {post.acf?.thumbnail_image?.url && (
-                <Image
+                <img
                   src={post.acf.thumbnail_image.url}
                   alt={post.title.rendered}
                   className="w-full h-[220px] object-cover"
                   loading="lazy"
-                  width={500}
-                  height={250}
                 />
               )}
               <div className="p-4 flex flex-col justify-between flex-grow card-body">
@@ -142,23 +137,24 @@ const BlogsCard = () => {
       </div>
 
       {hasMore && (
-        <div className="flex justify-center mt-10">
-          <button
-            onClick={handleLoadMore}
-            className="btn-15 flex items-center gap-2"
-            disabled={isLoadingMore}
-          >
-            {isLoadingMore ? (
-              <>
-                <span className="loader h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                Loading...
-              </>
-            ) : (
-              "Load More"
-            )}
-          </button>
-        </div>
+  <div className="flex justify-center mt-10">
+    <button
+      onClick={handleLoadMore}
+      className="btn-15 flex items-center gap-2"
+      disabled={isLoadingMore}
+    >
+      {isLoadingMore ? (
+        <>
+          <span className="loader h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+          Loading...
+        </>
+      ) : (
+        "Load More"
       )}
+    </button>
+  </div>
+)}
+
     </div>
   );
 };
