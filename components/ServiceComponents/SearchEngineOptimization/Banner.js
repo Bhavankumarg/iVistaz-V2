@@ -1,9 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
-import { CiCircleChevRight } from "react-icons/ci";
-import NextSeo from "@/components/Seo/Seo";
+// import NextSeo from "@/components/Seo/Seo";
 
 const HomeBanner = () => {
   const pathname = usePathname();
@@ -14,19 +12,19 @@ const HomeBanner = () => {
   }, []);
 
 
-  const seoField = {
-    title: "Maximize Your Online Visibility with Expert SEO Services by iVistaz",
-    description:
-      "Boost online visibility with expert SEO by iVistaz. Navigate dynamic SEO landscape, elevate digital presence, track progress.",
-    path: `${pathname}`,
-    metaImage: "/services/seo-banner.jpg",
-  };
+  // const seoField = {
+  //   title: "Maximize Your Online Visibility with Expert SEO Services by iVistaz",
+  //   description:
+  //     "Boost online visibility with expert SEO by iVistaz. Navigate dynamic SEO landscape, elevate digital presence, track progress.",
+  //   path: `${pathname}`,
+  //   metaImage: "/services/seo-banner.jpg",
+  // };
   const bannerSubHeading = "SEARCH ENGINE";
   const bannerHeading = "OPTIMIZATION";
 
   return (
     <>
-      <NextSeo {...seoField} />
+      {/* <NextSeo {...seoField} /> */}
       <div className="bg-white relative z-10 w-full">
         <div className="w-full mx-auto container">
           <div className="flex flex-col items-center lg:px-0 px-2">

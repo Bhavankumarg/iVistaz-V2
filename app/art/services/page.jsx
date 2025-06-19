@@ -6,23 +6,23 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Image from "next/image";
 import { servicesData } from "@/utils/data";
-import NextSeo from "@/components/Seo/Seo";
+// import NextSeo from "@/components/Seo/Seo";
 
 function page() {
   const pathname = usePathname();
   // const [domainName, setDomainName] = useState("");
 
-  const seoField = {
-    title: "Art Marketing Solution",
-    description:
-      "Promote your art with iVistaz's specialized marketing solutions. We help artists and galleries increase their online presence and connect with art enthusiasts, ensuring your work reaches a broader audience.",
-    path: `${pathname}`,
-    metaImage: "",
-  };
+  // const seoField = {
+  //   title: "Art Marketing Solution",
+  //   description:
+  //     "Promote your art with iVistaz's specialized marketing solutions. We help artists and galleries increase their online presence and connect with art enthusiasts, ensuring your work reaches a broader audience.",
+  //   path: `${pathname}`,
+  //   metaImage: "",
+  // };
 
   return (
     <>
-      <NextSeo {...seoField} />
+      {/* <NextSeo {...seoField} /> */}
       <div className="flex flex-col justify-between min-h-screen">
         <Image
           width={600}
