@@ -1,11 +1,15 @@
-"use client"
-import React from "react"
+"use client";
+import React from "react";
 
 function NextSeo({ title, description, path, metaImage }) {
   // Set a static domain name
-  const domainName = "https://ivistaz.com";
+  const domainName =
+    typeof window !== "undefined"
+      ? window.location.origin
+      : "https://ivistaz.com";
 
   return (
+   <>
     <head>
       <meta charSet="utf-8" />
       <title>{title}</title>
@@ -40,7 +44,8 @@ function NextSeo({ title, description, path, metaImage }) {
         }}
       />
     </head>
-  )
+   </>
+  );
 }
 
-export default NextSeo
+export default NextSeo;

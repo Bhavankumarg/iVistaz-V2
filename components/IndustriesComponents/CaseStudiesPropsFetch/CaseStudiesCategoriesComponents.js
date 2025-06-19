@@ -48,7 +48,8 @@ const CaseStudiesCategoriesComponents = ({ categoryId }) => {
 
   return (
     <>
-      <style jsx>{`
+      <style jsx>
+        {`
         .post-content-title {
           overflow: hidden;
           text-overflow: ellipsis;
@@ -172,10 +173,7 @@ const CaseStudiesCategoriesComponents = ({ categoryId }) => {
                   }}
                 />
                 <div className="mt-6 flex justify-center">
-                  <Link
-                    href="/contact-us"
-                    className="btn-14"
-                  >
+                  <Link href="/contact-us" className="btn-14">
                     Contact Us
                   </Link>
                 </div>
@@ -191,10 +189,7 @@ const CaseStudiesCategoriesComponents = ({ categoryId }) => {
               pathname === "/traffic" ||
               pathname === "/keyword-ranking" ||
               pathname === "/engagement") && (
-              <Link
-                href="/welcome"
-                className="btn-14"
-              >
+              <Link href="/welcome" className="btn-14">
                 Enter website
               </Link>
             )}
